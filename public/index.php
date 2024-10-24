@@ -1,6 +1,15 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
+use App\Library\Route\Router;
 
-Dotenv\Dotenv::createImmutable(dirname(__FILE__, 2))
-    ->load();
+require './bootstrap.php';
+
+try {
+    $route = new Router;
+    $route->add('/', 'GET', 'HomeController:index');
+    $route->add('/process', 'POST', 'ProcessDocsController:process');
+
+    echo $route->init();
+} catch (Exception $e) {
+    dump($e->getMessage().'::'.$e->getFile().'::'.$e->getLine());
+}
