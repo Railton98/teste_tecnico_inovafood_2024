@@ -40,7 +40,7 @@ class ProcessDocsController
 
     private function validateFile($document): void
     {
-        if (!$document) {
+        if (!$document || !$document['tmp_name']) {
             throw new InvalidArgumentException('Document is required. Please upload a `.docx` file.');
         }
         if (mime_content_type($document['tmp_name']) !== 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
