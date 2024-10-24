@@ -27,7 +27,7 @@ docker compose up -d
 docker compose exec php-fpm composer install
 ```
 ---
-> Acesse a aplicação em http://localhost
+> Acesse a aplicação em http://localhost:80
 > - a rota `/` retorna uma simples mensagem de sucesso
 > - a rota `/process` realiza o processamento (exemplo de requisição na imagem abaixo)
 >
